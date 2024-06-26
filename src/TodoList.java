@@ -12,7 +12,6 @@ public class TodoList {
 
     private int id;
     Task[] tasks;
-
    public void exportTaskToFile(){
 
    }

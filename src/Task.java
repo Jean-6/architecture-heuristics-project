@@ -15,7 +15,6 @@ public class Task {
     private String description;
     private Date date;
 
-
     @Override
     public String toString() {
         return "Task{" +

@@ -1,5 +1,6 @@
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 
@@ -8,13 +9,15 @@ import java.util.Scanner;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Log4j2
 
 public class Terminal {
 
+    private Task task;
+    private TodoList todoList;
 
     void run(){
-
         while(true){
             Scanner scanner = new Scanner (System.in);
             System.out.print(System.getProperty("user.dir") + " $ ");
