@@ -10,7 +10,6 @@ import java.util.Scanner;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Log4j2
 
 public class Terminal {
 

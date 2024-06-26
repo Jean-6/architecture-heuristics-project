@@ -5,19 +5,20 @@ import lombok.extern.log4j.Log4j2;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 
 @Getter
 @Setter
 @AllArgsConstructor
-@Log4j2
 
 public class TodoList {
 
     private List<Task> tasks;
 
     public void addTask(String desciption){
-        tasks.add(new Task(desciption, LocalDateTime.now(),false));
-
+        tasks.add(new Task(desciption, LocalDate.now(),false));
     }
 
     public void removeTask(int index){
@@ -35,9 +36,7 @@ public class TodoList {
     }
 
     public void exportTaskToFile(String filePath){
-
         File file = new File(filePath);
-
     }
 
     public void markTask(int index ){
