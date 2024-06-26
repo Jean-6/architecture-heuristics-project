@@ -17,7 +17,7 @@ Commands
     list: List all tasks.
 
 Examples
-
+java src/main/java/Main.java myapp "add" "task1"
 		myapp add "Buy milk"
 		myapp done 1
 		myapp delete 1
