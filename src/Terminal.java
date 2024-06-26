@@ -2,19 +2,20 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j2;
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+
 
 public class Terminal {
 
-    private Task task;
     private TodoList todoList;
+
+    Terminal(){
+        this.todoList = new TodoList(new ArrayList<Task>());
+    }
 
     void run(){
         while(true){
@@ -26,20 +27,57 @@ public class Terminal {
 
             switch (baseCommand){
                 case "add":
+                    if(commandParts.length >= 2 && commandParts.length <= 2){
+                        todoList.addTask(commandParts[1]);
+                    }else{
+                        System.out.println("Invalid command ,try : add taskName ");
+                    }
                     break;
-                case "mark":
+                /**/
+                case "progress":
+                    if(commandParts.length >= 2 && commandParts.length <= 2){
+                        todoList.markTaskAsProgress(Integer.parseInt(commandParts[1] ) -1);
+                    }else{
+                        System.out.println("Invalid command ,try : progress taskNumber ");
+                    }
                     break;
-                case "delete":
+                    case "pending":
+                        if(commandParts.length >= 2 && commandParts.length <= 2){
+                            todoList.markTaskAsPending(Integer.parseInt(commandParts[1] ) -1);
+                        }else{
+                            System.out.println("Invalid command ,try : pending taskNumber ");
+                        }
+                    break;
+                case "done":
+                    if(commandParts.length >= 2 && commandParts.length <= 2){
+                        todoList.markTaskAsDone(Integer.parseInt(commandParts[1] ) -1);
+                    }else{
+                        System.out.println("Invalid command ,try -> done taskNumber ");
+                    }
+                    break;
+                /**/
+                case "remove":
+                    if (commandParts.length >=2  && commandParts.length <= 2) {
+                        todoList.removeTask(Integer.parseInt(commandParts[1]) - 1);
+                    } else {
+                        System.out.println("No task index provided.");
+                    }
+
                     break;
                 case "list":
+                    todoList.displayTasks();
                     break;
+                case "export":
+                    System.out.println("you entered cmd : export ");
+                    break;
+
                 case "exit":
                     System.out.println("Exiting terminal ...");
                     scanner.close();
                     System.exit(0);
 
                 default:
-                    System.out.println("command not recognized");
+                    System.out.println("Command not recognized");
             }
 
         }

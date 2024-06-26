@@ -2,10 +2,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j2;
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -17,18 +15,26 @@ public class Task {
 
     private String description;
     private LocalDate date;
-    private boolean isCompleted;
+    private State state;
 
     @Override
     public String toString() {
         return "Task{" +
                 ", description='" + description + '\'' +
                 ", date=" + date.toString() +
-                ", isCompleted"+
+                ", status='" + state +
                 '}';
     }
 
-    public void markAsDone(){
-        this.isCompleted = true;
+    public void markAsProgress(){
+        this.state=State.PROGRESS;
     }
+    public void markAsPending(){
+        this.state=State.PENDING;
+    }
+    public void markAsDone(){
+        this.state=State.DONE;
+    }
+
+
 }
