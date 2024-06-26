@@ -1,11 +1,18 @@
 # TodoDone
 
+## Commande valide 
+
+```
+- add taskName
+- list
+- remove taskNumber
+```
 ## Explication de code
 
 1. Task.java :
 
-    * La classe `Task` encapsule les détails d'une tâche, y compris sa description et son état (complétée ou non).
-    * Elle fournit des méthodes pour marquer la tâche comme complétée ou en attente, et une méthode toString pour représenter la tâche sous forme de chaîne.
+    * La classe `Task` encapsule les détails d'une tâche , à savoir la description, la date de création,et son état initialement **TODO** . 
+    * Elle fournit des méthodes pour marquer la tâche comme **PROGRESS**,**PENDIND** et **DONE**, et une méthode toString pour représenter la tâche sous forme de chaîne.
     
 
 2. TodoList.java :
