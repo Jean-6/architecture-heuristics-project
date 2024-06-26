@@ -47,6 +47,8 @@ public class TodoList {
 
         try{
             FileWriter outputfile = new FileWriter(filePath);
+
+            //CSVWriter writer = new CSVWriter(outputfile);
         }catch (IOException e){
             System.out.println("");
         }

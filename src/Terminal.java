@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class Terminal {
 
     private TodoList todoList;
-
     Terminal(){
         this.todoList = new TodoList(new ArrayList<Task>());
     }
@@ -26,43 +25,32 @@ public class Terminal {
             String baseCommand = commandParts[0];
 
             switch (baseCommand){
-                case "add":
-                    if(commandParts.length >= 2 && commandParts.length <= 2){
-                        todoList.addTask(commandParts[1]);
-                    }else{
-                        System.out.println("Invalid command ,try : add taskName ");
-                    }
-                    break;
-                /**/
+                /*state*/
                 case "progress":
                     if(commandParts.length >= 2 && commandParts.length <= 2){
                         todoList.markTaskAsProgress(Integer.parseInt(commandParts[1] ) -1);
-                    }else{
-                        System.out.println("Invalid command ,try : progress taskNumber ");
-                    }
+                    }else System.out.println("Invalid command ,try : progress taskNumber ");
                     break;
                     case "pending":
                         if(commandParts.length >= 2 && commandParts.length <= 2){
                             todoList.markTaskAsPending(Integer.parseInt(commandParts[1] ) -1);
-                        }else{
-                            System.out.println("Invalid command ,try : pending taskNumber ");
-                        }
+                        }else System.out.println("Invalid command ,try : pending taskNumber ");
                     break;
                 case "done":
                     if(commandParts.length >= 2 && commandParts.length <= 2){
                         todoList.markTaskAsDone(Integer.parseInt(commandParts[1] ) -1);
-                    }else{
-                        System.out.println("Invalid command ,try -> done taskNumber ");
-                    }
+                    }else System.out.println("Invalid command ,try -> done taskNumber ");
                     break;
-                /**/
+                /*cmd*/
+                case "add":
+                    if(commandParts.length >= 2 && commandParts.length <= 2){
+                        todoList.addTask(commandParts[1]);
+                    }else System.out.println("Invalid command ,try : add taskName ");
+                    break;
                 case "remove":
                     if (commandParts.length >=2  && commandParts.length <= 2) {
                         todoList.removeTask(Integer.parseInt(commandParts[1]) - 1);
-                    } else {
-                        System.out.println("No task index provided.");
-                    }
-
+                    } else System.out.println("No task index provided.");
                     break;
                 case "list":
                     todoList.displayTasks();
@@ -70,7 +58,6 @@ public class Terminal {
                 case "export":
                     System.out.println("you entered cmd : export ");
                     break;
-
                 case "exit":
                     System.out.println("Exiting terminal ...");
                     scanner.close();
